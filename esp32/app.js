@@ -1,6 +1,7 @@
 // ════════════════════════════════
 // SENSOR DATA
-// ════════════════════════════════
+// ════════════════════════════════ test comment
+
 const SENSORS = [
   { id: 'flow',      name: 'Water Flow',  model: 'YF-S201', unit: 'L/min', min: 0,   max: 30,   safeMin: 2,   safeMax: 25,  color: '#38bdf8', desc: 'Flow rate through main pipe' },
   { id: 'temp',      name: 'Temperature', model: 'DS18B20', unit: '°C',    min: 0,   max: 100,  safeMin: 5,   safeMax: 40,  color: '#fb923c', desc: 'Water temperature reading' },
