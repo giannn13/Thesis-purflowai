@@ -1,0 +1,33 @@
+//data flow level description of the logic diagram in Figure 7.1
+module Comb_Ckt1_DF(input x, y, z, output F, G);
+	wire k;
+
+	assign k = y ^ z;
+	assign G = k ^ x;
+	assign F = (~k & z) | (k & x);
+
+endmodule
+
+//testbench module of Comb_Ckt1_DF module
+module MUT_Comb_Ckt1_DF;
+	reg tb_x, tb_y, tb_z;
+	wire tb_G, tb_F;
+
+	Comb_Ckt1_DF mut_comb_ckt1_df(.x(tb_x), .y(tb_y), .z(tb_z), .F(tb_F), .G(tb_G));
+
+	initial begin
+		tb_x = 1'b0; tb_y = 1'b0; tb_z = 1'b0;  
+		$display("Truth table of Combinational Circuit 1");
+		$display("x y z    G F TIME");
+		$monitor("%b %b %b   %b %b", tb_x, tb_y, tb_z, tb_G, tb_F, $time);
+		
+		#5 tb_x = 1'b0; tb_y = 1'b0; tb_z = 1'b1;
+		#5 tb_x = 1'b0; tb_y = 1'b1; tb_z = 1'b0;
+		#5 tb_x = 1'b0; tb_y = 1'b1; tb_z = 1'b1;
+		#5 tb_x = 1'b1; tb_y = 1'b0; tb_z = 1'b0;
+		#5 tb_x = 1'b1; tb_y = 1'b0; tb_z = 1'b1;
+		#5 tb_x = 1'b1; tb_y = 1'b1; tb_z = 1'b0;
+		#5 tb_x = 1'b1; tb_y = 1'b1; tb_z = 1'b1;
+		#5 $finish;
+	end
+endmodule

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PureFlow AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="logo-wrap">
+    <div class="logo-icon">💧</div>
+    <div class="logo-title">PureFlow AI</div>
+    <div class="logo-sub">Predictive Maintenance System</div>
+  </div>
+  <nav>
+    <div class="nav-item active" data-page="home">
+      <span class="nav-icon">⊞</span> Overview
+    </div>
+    <div class="nav-item" data-page="sensors">
+      <span class="nav-icon">📡</span> Sensors
+    </div>
+    <div class="nav-item" data-page="alerts">
+      <span class="nav-icon">🔔</span> Alerts
+      <span class="nav-badge" id="alert-badge">2</span>
+    </div>
+    <div class="nav-item" data-page="maintenance">
+      <span class="nav-icon">🔧</span> Maintenance
+      <span class="nav-badge warn" id="maint-badge">3</span>
+    </div>
+  </nav>
+  </aside>
+
+<!-- MAIN -->
+<div id="main">
+  <div class="topbar">
+    <div class="topbar-title" id="page-title">System Overview</div>
+    <div class="topbar-right">
+      <div class="time-text" id="clock">--:--:--</div>
+    </div>
+  </div>
+
+  <!-- ── HOME PAGE ── -->
+  <div class="page active" id="page-home">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">System Health</div>
+        <div class="stat-value green" id="health-score">94%</div>
+        <div class="stat-sub">Overall score</div>
+      </div>
+      
+    </div>
+    <div class="section-intro"><h2 class="sub-heading">Live Sensor Summary</h2></div>
+    <div class="sensor-grid" id="home-sensor-grid"></div>
+  </div>
+
+  <!-- ── SENSORS PAGE ── -->
+  <div class="page" id="page-sensors">
+        <div class="sensor-grid" id="sensor-detail-grid"></div>
+  </div>
+
+  <!-- ── ALERTS PAGE ── -->
+  <div class="page" id="page-alerts">    
+    <div class="alert-list" id="alert-list"></div>
+  </div>
+
+  <!-- ── MAINTENANCE PAGE ── -->
+  <div class="page" id="page-maintenance">
+    <div class="section-intro">
+      
+    </div>
+
+    <!-- System health banner -->
+    <div class="sys-banner">
+      <div class="sys-banner-left">
+        <div class="sys-banner-label">Overall System Health</div>
+        <div class="sys-banner-score" id="sys-health-pct">94%</div>
+        <div class="sys-banner-note">Based on all 5 sensor readings · Updated live</div>
+      </div>
+      <div class="sys-banner-grid">
+        <div class="sys-banner-cell">
+          <div class="sys-banner-cell-label">Next Service</div>
+          <div class="sys-banner-cell-val">Apr 25, 2026</div>
+        </div>
+        <div class="sys-banner-cell">
+          <div class="sys-banner-cell-label">Last Service</div>
+          <div class="sys-banner-cell-val">Apr 8, 2026</div>
+        </div>
+        <div class="sys-banner-cell">
+          <div class="sys-banner-cell-label">Tasks Pending</div>
+          <div class="sys-banner-cell-val yellow">3 Tasks</div>
+        </div>
+        <div class="sys-banner-cell">
+          <div class="sys-banner-cell-label">Est. Downtime</div>
+          <div class="sys-banner-cell-val">~2 hrs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task timeline -->
+    <div class="timeline-heading">Upcoming Maintenance Tasks</div>
+    <div id="maint-timeline" class="maint-timeline"></div>
+
+    <!-- Calendar -->
+    <div class="cal-wrap">
+      <div class="cal-title">April 2026 — System Maintenance Calendar</div>
+      <div class="cal-grid" id="calendar"></div>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><span class="cal-legend-dot red-dot"></span>Immediate</div>
+        <div class="cal-legend-item"><span class="cal-legend-dot yellow-dot"></span>Scheduled</div>
+        <div class="cal-legend-item"><span class="cal-legend-dot accent-dot"></span>Routine</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #main -->
+
+<script src="app.js"></script>
+</body>
+</html>
